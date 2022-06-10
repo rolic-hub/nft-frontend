@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
+import WalletModal from "./walletModal";
+import { useState } from "react";
 
-const Navigation = ({ web3handler, account }) => {
+const Navigation = ({ web3handler, account, unsLogin, walletC }) => {
+  const [connect, setConnect] = useState(false);
   return (
     <Navbar expand="lg" bg="primary" variant="dark">
       <Container>
@@ -44,10 +47,11 @@ const Navigation = ({ web3handler, account }) => {
                 </Button>
               </Nav.Link>
             ) : (
-              <Button onClick={web3handler} variant="outline-light">
+              <Button onClick={() => setConnect(true)} variant="outline-light">
                 Connect Wallet
               </Button>
             )}
+            <WalletModal web3handler={web3handler} unsLogin={unsLogin} walletC={walletC} connect={connect} setConnect={setConnect}/>
           </Nav>
         </Navbar.Collapse>
       </Container>
