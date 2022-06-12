@@ -45,14 +45,16 @@ const App = () => {
     setAccount(accounts);
     loadContract(signer);
   };
-    const uauth = new UAuth({
-      clientID: "0bfe1e72-23d4-4a8c-80c6-c30dfe52d12b",
-      scope: "openid email wallet",
-      redirectUri: "https://localhost:3000/callback",
-    });
+  
 
     const unsLogin = async () => {
       try {
+        const uauth = new UAuth({
+          clientID: "0bfe1e7223d44a8c80c6c30dfe52d12b",
+          scope: "openid email wallet",
+          redirectUri: "https://localhost:3000/callback",
+        });
+
          const authorization = await uauth.loginWithPopup();
          const accounts = authorization.idToken.address;
          
@@ -91,7 +93,7 @@ const App = () => {
           }}
         >
           <Spinner animation="border" style={{ display: "flex" }} />
-          <p className="mx-3 my-0"> Awaiting Metamask Connection....</p>
+          <p className="mx-3 my-0"> Awaiting Wallet Connection....</p>
         </div>
       ) : (
         <Routes>

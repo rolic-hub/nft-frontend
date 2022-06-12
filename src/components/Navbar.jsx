@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import WalletModal from "./walletModal";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Navigation = ({ web3handler, account, unsLogin, walletC }) => {
-  const [connect, setConnect] = useState(false);
+  const [connect, setConnect] = useState(true);
   return (
     <Navbar expand="lg" bg="primary" variant="dark">
       <Container>
